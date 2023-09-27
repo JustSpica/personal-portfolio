@@ -9,8 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.0.13",
     "@radix-ui/react-slot": "^1.0.2",
-    "lucide-react": "^0.279.0",
+    "axios": "^1.5.1",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
