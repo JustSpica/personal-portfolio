@@ -14,7 +14,8 @@
     "axios": "^1.5.1",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "tailwind-variants": "^0.1.14"
   },
   "devDependencies": {
     "@types/node": "latest",
