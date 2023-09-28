@@ -15,6 +15,7 @@
     "axios": "^1.5.1",
     "next": "latest",
     "react": "latest",
+    "react-canvas-confetti": "^1.4.0",
     "react-dom": "latest",
     "tailwind-variants": "^0.1.14",
     "tailwindcss-animate": "^1.0.7"
