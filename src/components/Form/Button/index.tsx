@@ -1,6 +1,7 @@
 import type { ButtonHTMLAttributes } from "react"
-import { tv, type VariantProps } from "tailwind-variants"
 import { Slot } from "@radix-ui/react-slot"
+
+import { tv, type VariantProps } from "tailwind-variants"
 
 const button = tv({
   base: "rounded-lg px-3 py-2 text-sm",
@@ -10,14 +11,18 @@ const button = tv({
       fill: "bg-emerald-600 text-gray-50",
     },
   },
+  defaultVariants: {
+    type: "fill",
+  },
 })
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface FormButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
   asChild?: boolean
   variant?: VariantProps<typeof button>
 }
 
-export function Button({ asChild, variant, ...props }: ButtonProps) {
+export function Button({ asChild, variant, ...props }: FormButtonProps) {
   const Component = asChild ? Slot : "button"
 
   return <Component className={button(variant)} {...props} />
