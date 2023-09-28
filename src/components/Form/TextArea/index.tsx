@@ -2,14 +2,18 @@ import { type ComponentProps, forwardRef } from "react"
 
 export interface FormTextAreaProps extends ComponentProps<"textarea"> {
   label?: string
+  required?: boolean
 }
 
 export const TextArea = forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
-  ({ label, ...props }, ref) => {
+  ({ label, required, ...props }, ref) => {
     return (
       <div className="flex w-full flex-col items-start gap-1">
         {label && (
-          <label className="text-sm font-medium text-gray-800">{label}</label>
+          <label className="text-sm font-medium text-gray-800">
+            {label}
+            {required && <span className="text-red-600">*</span>}
+          </label>
         )}
 
         <textarea

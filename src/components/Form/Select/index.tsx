@@ -7,13 +7,21 @@ export const Root = SelectPrimitive.Root
 export interface FormSelectTriggerProps {
   label?: string
   placeholder?: string
+  required?: boolean
 }
 
-export function Trigger({ label, placeholder }: FormSelectTriggerProps) {
+export function Trigger({
+  label,
+  placeholder,
+  required,
+}: FormSelectTriggerProps) {
   return (
     <div className="flex w-full flex-col items-start gap-1">
       {label && (
-        <label className="text-sm font-medium text-gray-800">{label}</label>
+        <label className="text-sm font-medium text-gray-800">
+          {label}
+          {required && <span className="text-red-600">*</span>}
+        </label>
       )}
 
       <SelectPrimitive.Trigger

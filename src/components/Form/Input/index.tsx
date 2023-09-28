@@ -2,14 +2,18 @@ import { type ComponentProps, forwardRef } from "react"
 
 export interface FormInputProps extends ComponentProps<"input"> {
   label?: string
+  required?: boolean
 }
 
 export const Input = forwardRef<HTMLInputElement, FormInputProps>(
-  ({ label, ...props }, ref) => {
+  ({ label, required, ...props }, ref) => {
     return (
       <div className="flex w-full flex-col items-start gap-1">
         {label && (
-          <label className="text-sm font-medium text-gray-800">{label}</label>
+          <label className="text-sm font-medium text-gray-800">
+            {label}
+            {required && <span className="text-red-600">*</span>}
+          </label>
         )}
 
         <input
