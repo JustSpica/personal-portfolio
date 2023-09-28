@@ -10,12 +10,14 @@
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.0.13",
+    "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.2",
     "axios": "^1.5.1",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "tailwind-variants": "^0.1.14"
+    "tailwind-variants": "^0.1.14",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "latest",
