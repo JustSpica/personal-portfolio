@@ -21,7 +21,7 @@ export function Trigger({ label, placeholder }: FormSelectTriggerProps) {
         border-2 border-gray-200 bg-white px-3 py-2 text-sm text-gray-800 
         outline-none transition-all focus:border-emerald-600 
         focus:text-emerald-600 focus:outline-none 
-        data-[state=open]:border-emerald-600 data-[placeholder]:text-gray-300 
+        data-[state=open]:border-emerald-600 data-[placeholder]:text-gray-400 
         data-[state=open]:text-emerald-600 data-[state=open]:outline-none"
       >
         <SelectPrimitive.Value placeholder={placeholder} />
