@@ -1,5 +1,6 @@
 import { findReposByTopic } from "@/services/repos"
 
+import { ContactForm } from "./components/ContactForm"
 import { Profile } from "./components/Profile"
 import { Repo } from "./components/Repo"
 
@@ -50,6 +51,12 @@ export default async function Home() {
         </section>
 
         <span className="my-6 block h-px w-full bg-gray-200" />
+
+        <section className="lg:grid lg:grid-cols-[0.3fr_0.7fr]">
+          <h2 className="mb-2 font-bold text-gray-800">Bora conversar ?</h2>
+
+          <ContactForm />
+        </section>
       </main>
     </section>
   )
