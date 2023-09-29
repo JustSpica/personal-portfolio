@@ -4,7 +4,7 @@ import { Slot } from "@radix-ui/react-slot"
 import { tv, type VariantProps } from "tailwind-variants"
 
 const button = tv({
-  base: "rounded-lg px-3 py-2 text-sm font-medium transition-all",
+  base: "rounded-lg px-3 py-2 text-sm font-medium transition-all disabled:bg-gray-500 disabled:hover:shadow-none disabled:cursor-not-allowed",
   variants: {
     type: {
       text: "text-emerald-600 hover:underline",
