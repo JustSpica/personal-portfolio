@@ -6,6 +6,8 @@ import type { GithubRepo } from "@/@types/github"
 import { Button } from "@/components/Form"
 import { Chip } from "@/components/Chip"
 
+import { formatRepoTitle } from "@/utils/format-repo-title"
+
 export interface RepoProps {
   repo: GithubRepo
 }
@@ -23,7 +25,9 @@ export function Repo({ repo }: RepoProps) {
           </div>
 
           <div className="ml-3 flex flex-col items-start gap-1">
-            <strong className="text-gray-800">{repo.name}</strong>
+            <strong className="text-gray-800">
+              {formatRepoTitle(repo.name)}
+            </strong>
             <Chip variant={{ color: hasFinished ? "finished" : "progress" }}>
               {hasFinished ? "Finalizado" : "Em andamento"}
             </Chip>
