@@ -1,6 +1,7 @@
 "use client"
 
 import { ConfettiProvider } from "@/components/Confetti/context"
+import * as ToastPrimitive from "@radix-ui/react-toast"
 
 import { Form } from "./Form"
 
@@ -16,9 +17,13 @@ export function ContactForm() {
         </h3>
       </header>
 
-      <ConfettiProvider>
-        <Form />
-      </ConfettiProvider>
+      <ToastPrimitive.Provider swipeDirection="down">
+        <ConfettiProvider>
+          <Form />
+        </ConfettiProvider>
+
+        <ToastPrimitive.Viewport className="fixed right-0 top-0 z-50 w-full p-4 md:w-[420px]" />
+      </ToastPrimitive.Provider>
     </section>
   )
 }

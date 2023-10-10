@@ -1,4 +1,5 @@
 "use client"
+import { useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Controller, useForm } from "react-hook-form"
 import * as zod from "zod"
@@ -7,6 +8,7 @@ import { Confetti } from "@/components/Confetti/"
 import { useConfetti } from "@/components/Confetti/context"
 import { Button, Input, TextArea } from "@/components/Form"
 import * as Select from "@/components/Form/Select"
+import { Toast } from "@/components/Toast"
 
 import { sendEmail } from "@/services/email"
 
@@ -22,6 +24,9 @@ const contactFormSchema = zod.object({
 type ContactFormType = zod.infer<typeof contactFormSchema>
 
 export function Form() {
+  const [successToast, setSuccessToast] = useState(false)
+  const [errorToast, setErrorToast] = useState(false)
+
   const { fire } = useConfetti()
 
   const {
@@ -37,16 +42,18 @@ export function Form() {
     try {
       await sendEmail(data)
 
+      setErrorToast(true)
+
       fire()
     } catch (error) {
+      setErrorToast(true)
+
       throw new Error(String(error))
     }
   }
 
   return (
     <>
-      <Confetti />
-
       <form
         className="flex flex-col gap-4"
         onSubmit={handleSubmit(handleSendContact)}
@@ -97,6 +104,28 @@ export function Form() {
           Enviar
         </Button>
       </form>
+
+      <Toast
+        open={successToast}
+        onOpenChange={(open) => {
+          setSuccessToast(open)
+        }}
+        title="Formulário enviado!"
+        description="Seu formulário foi enviado com sucesso."
+        variant={{ status: "success" }}
+      />
+
+      <Toast
+        open={errorToast}
+        onOpenChange={(open) => {
+          setErrorToast(open)
+        }}
+        title="Algo de errado aconteceu!"
+        description="Erro ao enviar os dados do formulário."
+        variant={{ status: "error" }}
+      />
+
+      <Confetti />
     </>
   )
 }
