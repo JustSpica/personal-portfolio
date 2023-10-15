@@ -27,8 +27,7 @@ export async function POST(req: NextRequest) {
       (await req.json()) as EmailFormType
 
     const resendData = (await resend.emails.send({
-      from: `Personal <email@${String(process.env.RESEND_DOMAIN_EMAIL)}>`,
-      /* from: `${name} <onboarding@resend.dev>`, */
+      from: `${name} <personal@${String(process.env.RESEND_DOMAIN_EMAIL)}>`,
       to: [String(process.env.RESEND_PERSONAL_EMAIL)],
       subject: `Email de contato: ${subject}`,
       react: ContactEmailTemplate({
