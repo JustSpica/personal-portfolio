@@ -1,5 +1,3 @@
-import { api } from "@/lib/axios"
-
 interface EmailData {
   subject: string
   name: string
@@ -9,9 +7,12 @@ interface EmailData {
 
 export async function sendEmail(data: EmailData) {
   try {
-    const response = await api.post("/email", data)
+    const response = await fetch("/api/email", {
+      body: JSON.stringify(data),
+      method: "POST",
+    })
 
-    return response
+    return await response.json()
   } catch (error) {
     throw new Error(`an unexpected error happened: ${String(error)}`)
   }
