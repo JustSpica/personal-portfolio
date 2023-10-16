@@ -16,6 +16,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toast": "^1.1.5",
     "@react-email/components": "^0.0.7",
+    "@tanstack/react-query": "^4.36.1",
     "axios": "^1.5.1",
     "next": "latest",
     "react": "latest",
@@ -26,6 +27,7 @@
     "resend": "^1.1.0",
     "tailwind-variants": "^0.1.14",
     "tailwindcss-animate": "^1.0.7",
+    "uuid": "^9.0.1",
     "zod": "^3.21.4"
   },
   "devDependencies": {
