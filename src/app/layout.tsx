@@ -2,6 +2,8 @@ import type { ReactNode } from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 
+import { TanstackProvider } from "@/contexts/TanstackContext"
+
 import "@/styles/globals.css"
 
 interface RootLayoutProps {
@@ -22,7 +24,9 @@ const inter = Inter({
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="pt-br" className={inter.className}>
-      <body>{children}</body>
+      <body>
+        <TanstackProvider>{children}</TanstackProvider>
+      </body>
     </html>
   )
 }
