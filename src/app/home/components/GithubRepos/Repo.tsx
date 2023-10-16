@@ -56,3 +56,27 @@ export function Repo({ repo }: RepoProps) {
     </section>
   )
 }
+
+export function Skeleton() {
+  return (
+    <section className="rounded-lg border border-gray-200 bg-gray-50 shadow-sm">
+      <section className="p-4">
+        <header className="flex items-center">
+          <div className="h-11 w-11 animate-pulse rounded-full bg-gray-200" />
+
+          <div className="ml-3 flex flex-col items-start gap-1">
+            <span className="h-6 w-60 animate-pulse rounded-lg bg-gray-200" />
+            <span className="h-6 w-24 animate-pulse rounded-lg bg-gray-200" />
+          </div>
+        </header>
+
+        <span className="mt-4 block h-5 w-full animate-pulse rounded-lg bg-gray-200" />
+      </section>
+
+      <footer className="flex justify-end gap-2 border-t border-gray-200 p-4">
+        <span className="h-9 w-20 animate-pulse rounded-lg bg-gray-200" />
+        <span className="h-9 w-20 animate-pulse rounded-lg bg-gray-200" />
+      </footer>
+    </section>
+  )
+}

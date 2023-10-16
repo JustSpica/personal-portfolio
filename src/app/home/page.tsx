@@ -1,12 +1,8 @@
-import { findReposByTopic } from "@/services/repos"
-
 import { ContactForm } from "./components/ContactForm"
 import { Profile } from "./components/Profile"
-import { Repo } from "./components/Repo"
+import { GithubRepos } from "./components/GithubRepos"
 
-export default async function Home() {
-  const repos = await findReposByTopic("personal")
-
+export default function Home() {
   return (
     <section className="h-screen">
       <header className="h-40 w-full bg-gray-950" />
@@ -43,11 +39,7 @@ export default async function Home() {
         <section className="lg:grid lg:grid-cols-[0.3fr_0.7fr]">
           <h2 className="mb-2 font-bold text-gray-800">Projetos pessoais</h2>
 
-          <div className="flex flex-col gap-4 md:grid md:grid-cols-2">
-            {repos.map((repo) => (
-              <Repo key={repo.name} repo={repo} />
-            ))}
-          </div>
+          <GithubRepos />
         </section>
 
         <span className="my-6 block h-px w-full bg-gray-200" />

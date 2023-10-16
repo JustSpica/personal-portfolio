@@ -19,6 +19,6 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(filteredReposByTopic)
   } catch (error) {
-    console.log(error)
+    return NextResponse.json({ message: String(error) }, { status: 500 })
   }
 }
